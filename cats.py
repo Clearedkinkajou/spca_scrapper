@@ -9,7 +9,7 @@ def main():
     try:
         while 1:
             page_number += 1
-            url = f'https://www.spca.com/en/adoption/rabbits-for-adoption/page/{page_number}/'
+            url = f'https://www.spca.com/en/adoption/cats-for-adoption/page/{page_number}/'
             page_content = requests.get(url)
             tree = html.fromstring(page_content.content)
 
