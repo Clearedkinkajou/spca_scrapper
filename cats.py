@@ -10,11 +10,9 @@ def main():
         while 1:
             page_number += 1
             url = f'https://www.spca.com/en/adoption/rabbits-for-adoption/page/{page_number}/'
-            # page = urllib.request.urlopen(url)
-            pageContent=requests.get(
-                f'https://www.spca.com/en/adoption/small-animals-for-adoption/page/{page_number}/'
-            )
-            tree = html.fromstring(pageContent.content)
+            page_content = requests.get(url)
+            tree = html.fromstring(page_content.content)
+
             cat_names = tree.xpath('//*[@id="page-main"]/div[4]/div/div[3]/div[*]/a/div[2]/h5/text()')
             cat_info = tree.xpath('//*[@id="page-main"]/div[4]/div/div[3]/div[*]/a/div[2]/div[1]/text()')
             print("===============================")
